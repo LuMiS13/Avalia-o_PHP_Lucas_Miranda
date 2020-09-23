@@ -13,12 +13,27 @@
     require_once "interface/registroCertidao.php";
     require_once "interface/registroContrato.php";
 
-    $c1 = new Cliente("l", "m", "1", "2", "");
-    $c2 = new Cliente("a", "b", "1", "2", "");
-    $nasc = new Nascimento("1", "la", $c1, $c2, "1", "2", "t", "c");
-    var_dump ($nasc);
-    $cart = new Cartorio;
-    $cart->registrarCertidao($nasc);
-    var_dump($cart->getCertidoes());
+    class Cartorio implements RegistroContrato, RegistroCertidao{
+        private $contratos;
+        private $certidoes;
 
+        public function registrarCertidao($certidao)
+        {
+            $this->certidoes[] = ($certidao);
+        }
+
+        public function registrarContrato($contrato){
+            $this->contratos[] = ($contrato);
+        }
+
+        public function getCertidoes()
+        {
+            return $this->certidoes;
+        }
+
+        public function getContratos()
+        {
+            return $this->contratos;
+        }
+    }
 ?>

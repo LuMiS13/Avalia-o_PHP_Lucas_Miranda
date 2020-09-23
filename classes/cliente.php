@@ -12,13 +12,21 @@
     require_once "classes/certidao.php";
     require_once "interface/registroCertidao.php";
     require_once "interface/registroContrato.php";
+    
+    class Cliente {
+        private $nome;
+        private $endereco;
+        private $rg;
+        private $cpf;
+        private $cnpj;
 
-    $c1 = new Cliente("l", "m", "1", "2", "");
-    $c2 = new Cliente("a", "b", "1", "2", "");
-    $nasc = new Nascimento("1", "la", $c1, $c2, "1", "2", "t", "c");
-    var_dump ($nasc);
-    $cart = new Cartorio;
-    $cart->registrarCertidao($nasc);
-    var_dump($cart->getCertidoes());
-
+        public function __construct($nome, $endereco, $rg, $cpf, $cnpj)
+        {
+            $this->nome = $nome;
+            $this->endereco = $endereco;
+            $this->rg = $rg;
+            $this->cpf = $cpf;
+            $this->cnpj = $cnpj;
+        }
+    }
 ?>

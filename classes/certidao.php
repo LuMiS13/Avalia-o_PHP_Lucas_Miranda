@@ -13,12 +13,14 @@
     require_once "interface/registroCertidao.php";
     require_once "interface/registroContrato.php";
 
-    $c1 = new Cliente("l", "m", "1", "2", "");
-    $c2 = new Cliente("a", "b", "1", "2", "");
-    $nasc = new Nascimento("1", "la", $c1, $c2, "1", "2", "t", "c");
-    var_dump ($nasc);
-    $cart = new Cartorio;
-    $cart->registrarCertidao($nasc);
-    var_dump($cart->getCertidoes());
-
+    abstract class Certidao {
+        public $nrRegistro;
+        public $nomePessoaObjeto;
+        public $nomeDeclarante;
+        public $tipoCertidao;
+        public $dataEmissao;
+        public $nomeTabeliao;
+        public $nomeCartorio;
+        public $certidoes;
+    }
 ?>
